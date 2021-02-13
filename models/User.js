@@ -26,7 +26,7 @@ const UserSchema = new mongoose.Schema({
   resetPasswordExpire: Date,
 });
 
-UserSchema.pre("save", async function () {
+UserSchema.pre("save", async function (next) {
   if (!this.isModified("password")) {
     next();
   }
