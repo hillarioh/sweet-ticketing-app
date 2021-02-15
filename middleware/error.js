@@ -17,6 +17,8 @@ const errorHandler = (err, req, res, next) => {
 
   res.status(error.statusCode || 500).json({
     success: false,
-    error: error.message,
+    error: error.message || "SErver error",
   });
 };
+
+module.exports = errorHandler;
